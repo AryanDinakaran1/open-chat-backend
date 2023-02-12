@@ -6,5 +6,5 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-EXPOSE 8080
-CMD ["nodemon", "index.js"]
+EXPOSE 8000
+CMD ["node", "index.js"]
