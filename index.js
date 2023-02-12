@@ -51,14 +51,16 @@ app.put('/update-chat/:id', (req, res) => {
     const { id } = req.params;
     const { text } = req.body;
     con.query(`UPDATE Chats SET text = '${text}' WHERE id = ${id}`, (err, row) => {
+        if (err) throw err;
         res.status(200).json(row)
     })
 })
 
 //Delete Chats
-app.put('/delete-chat/:id', (req, res) => {
+app.delete('/delete-chat/:id', (req, res) => {
     const { id } = req.params;
     con.query(`DELETE FROM Chats WHERE id = ${id}`, (err, row) => {
+        if (err) throw err;
         res.status(200).json(row)
     })
 })
